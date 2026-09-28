@@ -1,5 +1,6 @@
+import { useRef } from 'react'
 import { Bounds, useGLTF } from "@react-three/drei"
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
 import * as THREE from 'three'
 
 type Path = {
@@ -7,18 +8,31 @@ type Path = {
 }
 
 const GuitarModel = ({ path }: Path) => {
+    const guitarRef = useRef<THREE.Group>(null);
 	const { scene } = useGLTF(path);
-    return <primitive object={scene} />;
+
+    useFrame(() => {
+        if (guitarRef.current) {
+            guitarRef.current.rotation.y += .005;
+        }
+    })
+
+    return (
+        <group ref={guitarRef}>
+            <primitive object={scene} />
+        </group>
+    );
 }
 
-const Guitar = ({ path }: Path) => {
+const Guitar = ({ path }: Path) => {  
+
     return (
 		<div style={{ height: "100vh" }}>
 			<Canvas gl={{ antialias: true, toneMapping: THREE.NoToneMapping }} linear>
 				<ambientLight intensity={1} />
 				<directionalLight position={[0, 10, 5]} intensity={1} />
 
-				<Bounds fit clip margin={1.2}>
+				<Bounds fit clip margin={1}>
 					<GuitarModel path={path} />
 				</Bounds>
 			</Canvas>
