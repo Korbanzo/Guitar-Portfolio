@@ -6,8 +6,8 @@ type SongVideoProps = {
 
 const SongVideo = ({ path, title, artist }: SongVideoProps) => {
     return (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-        <video controls style={{maxWidth: `${window.innerWidth / 4}px`,boxShadow: "0px 0px 10px white"}}>
+    <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap'}}>
+        <video controls style={{maxWidth: `${window.innerWidth / 2.5}px`,boxShadow: "0px 0px 10px white"}}>
             <source id={title} src={path} type="video/mp4"/>
         </video>
         <label htmlFor={title} style={{fontWeight: 'bold'}}>{title}</label>

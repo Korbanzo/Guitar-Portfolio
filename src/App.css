@@ -1,4 +1,8 @@
-#root { 
-    width: 100vw;
-    height: 100vh;
+.song-video-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkcyan;
+    padding: 10px;
 }
