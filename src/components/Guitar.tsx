@@ -27,7 +27,7 @@ const GuitarModel = ({ path }: Path) => {
 const Guitar = ({ path }: Path) => {  
 
     return (
-		<div style={{ height: "100vh" }}>
+		<div style={{ height: '80vh'}}>
 			<Canvas gl={{ antialias: true, toneMapping: THREE.NoToneMapping }} linear>
 				<ambientLight intensity={1} />
 				<directionalLight position={[0, 10, 5]} intensity={1} />

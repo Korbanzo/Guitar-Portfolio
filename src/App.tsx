@@ -11,12 +11,13 @@ function App() {
   return (
     <>
     <Guitar path={guitarPath} />
+
     <main>
       <header>
         <h1>Welcome.</h1>
       </header>
 
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
         <SongVideo path={Pretend_AlexG} title={"Pretend"} artist={"Alex G"} />
         <SongVideo path={Need2_Pinegrove} title={"Need2"} artist={"Pinegrove"} />
       </div>
